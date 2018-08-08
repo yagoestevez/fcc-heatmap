@@ -1,0 +1,166 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//                        by Yago Estévez. https://twitter.com/yagoestevez                        //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+
+$primary-color        : #4575b4;
+$secondary-color      : #fafafa;
+$key-color            : #f46d43;
+ 
+:root, * {
+  box-sizing          : border-box;
+  padding             : 0;
+  margin              : 0;
+}
+
+body {
+  background          : $secondary-color;
+  color               : rgba( $primary-color, .7 );
+  font-family         : 'Merriweather', serif;
+  padding             : 1rem 1rem;
+  display             : flex;
+  flex-direction      : column; 
+  justify-content     : center;
+  align-items         : center; 
+}
+
+h2 {
+  color               : $primary-color;
+  font-size           : 2rem;
+  margin-top          : 3rem;
+  text-align          : center;
+}
+
+h3 {
+  color               : $key-color;
+}
+
+#preloader {
+  transition          : opacity 300ms;
+  animation           : blink 1s infinite;
+  @keyframes blink {
+    0%   { opacity    :  1; }
+    50%  { opacity    : .1; }
+    100% { opacity    :  1; }
+  }
+  &.hidden {
+    opacity           : 0;
+    animation         : none;
+  }
+}
+
+#chart-container {
+  width               : 100%;
+  max-width           : 1600px;
+  padding             : 0 1.5rem;
+  margin              : 2rem 0;
+  background          : $secondary-color; 
+  box-shadow          : 0px 0px 15px #6f95b155;
+
+  span {
+    margin            : 1rem 0;
+  }
+}
+
+#chart {
+
+  .domain, .tick line {
+    stroke            : $key-color;
+  }
+
+  .tick text {
+    fill              : $primary-color;
+    text-anchor       : center;
+  }
+
+  .cell.active {
+    fill              : $key-color !important;
+  }
+
+  .label {
+    fill              : $primary-color;
+    text-anchor       : middle;
+    font-size         : 12px;
+  }
+
+  #legend {
+    text-anchor       : center;
+    font-size         : .5rem;
+    .legend-text {
+      fill            : $primary-color;
+    }
+  }
+
+}
+
+#tooltip {
+  background          : $key-color;
+  border              : 3px solid $key-color;
+  border-radius       : 10px;
+  box-shadow          : 0px 0px 20px 5px rgba(black,.2);
+  color               : $primary-color;
+  text-align          : left;
+  font-size           : 1rem;
+  display             : flex;
+  flex-direction      : column; 
+  .title {
+    padding           : 1rem;
+    height            : 100% !important;
+    color             : $secondary-color;
+  }
+  h4 {
+    text-align        : center;
+  }
+  .temperatures {
+    padding           : 1rem;
+    line-height       : 1.8rem;
+    background        : $secondary-color;
+    border-radius     : 10px;
+    .positive {
+      color           : $key-color;
+    }
+  }
+}
+
+
+footer {
+  text-align          : center;
+  width               : 50%;
+  p {
+    margin            : 1rem 0;
+  }
+  hr {
+    border            : 0;
+    height            : 0;
+    border-bottom     : 1px solid rgba( $primary-color, .3 );
+  }
+}
+
+
+
+a, a:visited {
+  color               : $key-color;
+  text-decoration     : none;
+  transition          : color 300ms;
+
+  &:hover, &:active {
+    color             : $primary-color;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  #chart-container {
+    margin            : .5rem;
+  }
+  h2 {
+    font-size         : 1.5rem;
+  }
+  footer {
+    font-size         : .8rem;
+    margin            : 0 1rem;
+  }
+
+}
+
