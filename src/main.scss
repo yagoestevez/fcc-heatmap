@@ -5,9 +5,9 @@
 
 @import url('https://fonts.googleapis.com/css?family=Merriweather');
 
-$primary-color        : #4575b4;
-$secondary-color      : #fafafa;
-$key-color            : #f46d43;
+$primary-color        : #b46045;
+$light-color          : #fafafa;
+$key-color            : #fdae61;
  
 :root, * {
   box-sizing          : border-box;
@@ -16,7 +16,14 @@ $key-color            : #f46d43;
 }
 
 body {
-  background          : $secondary-color;
+  background          : $key-color;
+  background          : repeating-linear-gradient(
+                        60deg,
+                        lighten( $key-color, 4% ),
+                        lighten( $key-color, 4% ) 5px,
+                        $key-color 5px,
+                        $key-color 10px
+                      );
   color               : rgba( $primary-color, .7 );
   font-family         : 'Merriweather', serif;
   padding             : 1rem 1rem;
@@ -26,15 +33,15 @@ body {
   align-items         : center; 
 }
 
-h2 {
+#title {
   color               : $primary-color;
   font-size           : 2rem;
   margin-top          : 3rem;
   text-align          : center;
 }
 
-h3 {
-  color               : $key-color;
+#description {
+  color               : rgba( $light-color, .8 );
 }
 
 #preloader {
@@ -56,7 +63,14 @@ h3 {
   max-width           : 1600px;
   padding             : 0 1.5rem;
   margin              : 2rem 0;
-  background          : $secondary-color; 
+  background          : $light-color;
+  background          : repeating-linear-gradient(
+                        60deg,
+                        darken( $light-color, 2% ),
+                        darken( $light-color, 2% ) 5px,
+                        $light-color 5px,
+                        $light-color 10px
+                      );
   box-shadow          : 0px 0px 15px #6f95b155;
 
   span {
@@ -67,7 +81,7 @@ h3 {
 #chart {
 
   .domain, .tick line {
-    stroke            : $key-color;
+    stroke            : $primary-color;
   }
 
   .tick text {
@@ -97,6 +111,13 @@ h3 {
 
 #tooltip {
   background          : $key-color;
+  background          : repeating-linear-gradient(
+                        60deg,
+                        lighten( $key-color, 4% ),
+                        lighten( $key-color, 4% ) 5px,
+                        $key-color 5px,
+                        $key-color 10px
+                      );
   border              : 3px solid $key-color;
   border-radius       : 10px;
   box-shadow          : 0px 0px 20px 5px rgba(black,.2);
@@ -108,7 +129,7 @@ h3 {
   .title {
     padding           : 1rem;
     height            : 100% !important;
-    color             : $secondary-color;
+    color             : $primary-color;
   }
   h4 {
     text-align        : center;
@@ -116,7 +137,7 @@ h3 {
   .temperatures {
     padding           : 1rem;
     line-height       : 1.8rem;
-    background        : $secondary-color;
+    background        : $light-color;
     border-radius     : 10px;
     .positive {
       color           : $key-color;
@@ -141,12 +162,12 @@ footer {
 
 
 a, a:visited {
-  color               : $key-color;
+  color               : $primary-color;
   text-decoration     : none;
   transition          : color 300ms;
 
   &:hover, &:active {
-    color             : $primary-color;
+    color             : $light-color;
   }
 }
 
